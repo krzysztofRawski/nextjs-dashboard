@@ -10,16 +10,11 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
-import { cookies, headers } from 'next/headers';
 
 export async function fetchRevenue() {
   // Add noStore() here prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   noStore();
-  const userAgent = headers().get('user-agent');
-  console.log('DEBUG BCIM reqHeaders', userAgent);
-  const reqCookies = cookies();
-  console.log('DEBUG BCIM utag_main', reqCookies);
   try {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
